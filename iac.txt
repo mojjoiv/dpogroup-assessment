@@ -1,0 +1,38 @@
+7> //Explain the concept of Infrastructure as Code and its importance in cloud infrastructure
+management. Provide an example of how you would define infrastructure components using
+a tool like Terraform or AWS CloudFormation.//
+
+Yes, you can manage and configure your computer infrastructure with Infrastructure as Code (IaC) 
+by using code rather than human setups. It's similar to developing a formula or set of guidelines 
+that your computer systems can use to build, adjust, and maintain your cloud infrastructure automatically.
+
+Let's take an example where you wish to set up an online storage bucket or other cloud storage space. 
+With Infrastructure-as-a-Service (IaC) technologies such as Terraform or AWS CloudFormation, 
+you create a basic file in a language that resembles English.
+
+Here's an easy way to understand it:
+
+1> Composing the Recipe: You create a text document, my_storage_recipe.tf, and type something
+ along these lines:
+
+            supplier "aws" with region set to "us-west-2"
+
+            bucket = "my-unique-bucket-name"; acl = "private"; resource "aws_s3_bucket" "my_storage_bucket"
+
+This file describes that you want to create an AWS S3 bucket named "my-unique-bucket-name" in the US West
+ (Oregon) region and set it to be private.
+
+2>  Using the Recipe: The following command is then used to carry out this recipe:
+
+            terraform apply
+
+With this command, you instruct the IaC tool (Terraform in this example) to read the recipe 
+and adjust your cloud provider account accordingly to create the designated storage bucket.
+
+And that's it! You can create, edit, and remove cloud infrastructure components with ease 
+and consistency by using simple code files when you use Infrastructure as Code. It works 
+similarly to instructing your cloud provider on what needs to be built; they handle the 
+rest as per your directions.
+
+With this approach, you can manage your cloud resources with flexibility, reliability, 
+and efficiency because your infrastructure will be well-documented, reproducible, and simple to maintain.

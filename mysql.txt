@@ -1,0 +1,54 @@
+4>//Discuss different methods for connecting to a database in PHP. Describe the differences
+between MySQLi and PDO. Provide an example of how to perform a basic database query
+using one of these methods.//
+
+There are several methods in PHP for connecting to databases, 
+two of which are MySQLi (MySQL Improved) and PDO (PHP Data Objects). 
+Both allow PHP to interact with databases, but they differ in their usage and features.
+
+MySQLi (MySQL Improved): 
+Procedural and Object-Oriented Interfaces: 
+MySQLi provides procedural and object-oriented interfaces.
+MySQL-specific terminology: Specifically designed for MySQL database interactions.
+Supports Prepared Statements and Transactions: Allows for the creation of prepared statements and transactions, 
+which improves security and integrity.
+Native Stored Procedure Support: Offers native support for stored procedures in MySQL databases.
+Fully Equipped: Provides additional features for managing MySQL features.
+PHP Data Objects (PDO):
+Database Agnostic: Works with a variety of database management systems other than MySQL. 
+It supports a variety of databases, including MySQL, PostgreSQL, SQLite, and others.
+
+// Database connection
+$dsn = 'mysql:host=localhost; dbname=customers; charset=utf8';
+$username = 'username';
+$password = 'password';
+
+try {
+    $pdo = new PDO($dsn, $username, $password);
+
+    // Set PDO error mode to exception
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    // query
+    $sql = "SELECT * FROM users";
+
+    // SQL statement
+    $statement = $pdo->prepare($sql);
+
+    // Execute statement
+    $statement->execute();
+
+    // Fetch all rows
+    $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+    //  fetched data
+    foreach ($result as $row) {
+        echo "Name: {$row['name']} - Email: {$row['email']}<br>";
+    }
+} catch (PDOException $e) {
+    // Handle database connection errors
+    echo "Connection failed: " . $e->getMessage();
+}
+
+This code establishes a connection to a MySQL database using PDO, 
+prepares and executes a simple SQL query to retrieve data from a table 

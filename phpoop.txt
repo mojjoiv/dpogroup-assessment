@@ -1,0 +1,51 @@
+2> //Describe the principles of Object-Oriented Programming (OOP) in PHP. How do you define a
+class and create objects in PHP? Provide an example of a class and its instantiation.//
+
+In PHP, the ideas of classes and objects, encapsulation, 
+inheritance, polymorphism, and abstraction are central 
+to object-oriented programming, or OOP. The following are the core ideas of OOP in PHP:
+
+PHP OOP Principles: Classes and Objects
+
+Class: An object's blueprint defining its behavior and structure. 
+It contains information (attributes/properties) and the functions (methods) that manipulate the information.
+Object: A class instance that shares the class's defined behavior and has its own distinct set of data.
+Summarization:
+
+Combining data (properties) and methods that manipulate the data into a 
+single unit (class) is known as encapsulation. Access modifiers such as public, 
+private, and protected can be used to control access to properties and methods.
+Transference:
+
+A class (subclass or child class) can inherit properties thanks to inheritance.
+
+Here is an example of a class and object instantiation in php:
+
+<?php
+class Car {
+    public $brand;
+    public $subBrand;
+    public $YOM;
+
+    public function __construct($brand, $subBrand, $YOM) {
+        $this->brand = $brand;
+        $this->subBrand = $subBrand;
+        $this->YOM = $YOM;
+    }
+
+    public function getFullName() {
+        return $this->brand . " " . $this->subBrand;
+    }
+
+    public function getYOM() {
+        return $this->YOM;
+    }
+}
+
+// Create a new object of the Car class
+$Car1 = new Car('Mercedes', 'GLE', 1996);
+$Car2 = new Car('Toyota', 'Corolla', 2006);
+
+// Access object properties and methods
+echo "Car 1: " . $Car1->getFullName() . ", YOM: " . $Car1->getYOM() . "\n";
+echo "Car 2: " . $Car2->getFullName() . ", YOM: " . $Car2->getYOM();

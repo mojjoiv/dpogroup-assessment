@@ -1,0 +1,44 @@
+1> Explain the difference between single-quoted and double-quoted strings in PHP. Provide
+examples of when you would use each.
+
+PHP behaves differently for single-quoted (' ') and double-quoted (" ") strings:
+
+Strings with a single quote (' '): Literal Representation: Most characters in 
+single-quoted strings are treated as literals. Within single-quoted strings, 
+variables and escape sequences (apart from \' and \\) are not interpreted.
+
+Faster Processing: PHP doesn't parse strings that contain escape sequences or 
+variables interpolation, so single-quoted strings are processed more quickly.
+
+Here is an example:
+
+$name = 'John';
+echo 'Hello, ' . $name . '!'; // Output: Hello, John!
+
+
+Variable Interpolation with Double-quoted Strings (" "): Variable interpolation is possible 
+with double-quoted strings, which means that variables within double quotes are replaced with 
+their actual values.
+
+Interpretation of Escape Sequences: Escape sequences (e.g., n, t) and special characters (", $) 
+are interpreted within double-quoted strings.
+
+Slower Processing: Because PHP processes variable interpolation and escape sequences, 
+double-quoted strings are marginally slower.
+
+Here is an example of this:
+
+$name = 'John';
+echo "Hello, $name!"; // Output: Hello, John!
+
+
+When to Apply Each:
+Single-quoted Strings are appropriate when:
+
+You want a straightforward string that does not require variable interpolation or escape sequences.
+When dealing with large amounts of static text, speed and performance are critical.
+Double-quoted Strings come in handy when:
+
+Variable interpolation or variable embedding within strings is required.
+Escape sequence interpretation is required.
+Dynamic string generation in which variables must be included directly within the string.
